@@ -1,0 +1,151 @@
+body{
+    margin: 0;   
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.loading-icon{
+    height: 100px;
+    width: 100px;
+}
+
+.app-container{
+     background-color: #16171B;
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 100%;
+     width: 100%;
+     overflow: auto;
+}
+
+.header-general{
+     background-color: #131317;
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 50px;
+}
+
+.header-general > nav{
+     border: 0;    
+}
+
+.movies-header-toolbar{
+     background-color: #131317;
+     position: absolute;
+     top: 50px;
+     left: 0;
+     right: 0;
+     height: 50px;
+}
+
+.series-container, .movies-container{
+     position: absolute;
+     top: 100px;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     padding: 15px;
+}
+
+.movies-container>ul{
+    list-style-type:none;
+}
+
+.movie-container{
+    float:left;
+}
+
+.movie-item{
+    font-size: 14px;
+    padding: 15px    
+}
+
+.movie-image-container{
+    display: inline-block;
+    height: 290px;
+    width: 210px;
+    position: relative;
+}
+
+.movie-delete-icon{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #C3C2B1;
+}
+
+.movie-image{
+    height: 290px;
+    width: 210px;
+}
+
+.movie-name{
+    color: #C3C2B1;
+}
+
+.movie-sub-info{
+    color: #363736;    
+}
+
+.movie-year{
+    display: inline-block;
+}
+
+.movie-resolutions{
+    float: right;
+}
+
+.done-button{
+    line-height: 14px;
+    margin-top: 1px;    
+}
+
+.movies-edit-panel{
+    position: relative;
+    margin-left: 60px;
+    display: inline-block;    
+}
+
+.movies-search{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+/*animation*/
+        .delete-icon {
+            -webkit-animation-duration: .4s;
+            animation-duration: .4s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-name: wobble;
+         }
+         
+         @-webkit-keyframes wobble { 
+            0% { -webkit-transform: translateX(0%); } 
+            15% { -webkit-transform: translateX(-10%) rotate(-20deg); } 
+            30% { -webkit-transform: translateX(7%) rotate(15deg); } 
+            45% { -webkit-transform: translateX(-5%) rotate(-15deg); } 
+            60% { -webkit-transform: translateX(3%) rotate(10deg); } 
+            100% { -webkit-transform: translateX(-1%) rotate(-5deg); }
+         }
+         
+         @keyframes wobble { 
+            0% { transform: translateX(0%); } 
+            15% { transform: translateX(-10%) rotate(-20deg); } 
+            30% { transform: translateX(7%) rotate(15deg); } 
+            45% { transform: translateX(-5%) rotate(-15deg); } 
+            60% { transform: translateX(3%) rotate(10deg); } 
+            100% { transform: translateX(-1%) rotate(-5deg); } 
+         }
+         
+         .wobble { 
+            -webkit-animation-name: wobble; 
+            animation-name: wobble; 
+         }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<HTML lang="en" ng-app="movieLibrary">
+<HEAD>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width"> 
+    
+    <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href='css/app.css' rel="stylesheet">
+</HEAD>
+<BODY>
+    <div class="app-container" ng-controller="appCtrl">
+        <div class="header-general">
+            
+        </div>
+        <div>
+          <fieldset ng-controller="MoviesCtrl" ng-disabled="!isAppReady">
+<div class="movies-header-toolbar">
+            <div class="movies-edit-panel">
+                <button type="button" class="btn glyphicon glyphicon-plus" ng-click="addMovie()"></button>
+                <button ng-show="!isDeleting" type="button" class="btn glyphicon glyphicon-trash" ng-click="deleteMovies()"></button>
+                <button ng-hide="!isDeleting" type="button" class="btn done-button" ng-click="doneDeleteMovies()">Done</button>
+            </div>
+            <input class="movies-search" type="text" class="input-sm" ng-model="search.name" placeholder="search">
+            <div ng-show="searchResultNumber > 0" class="badge">{{searchResultNumber}}</div>
+</div>        
+<div class="movies-container">
+            <div ng-show="!movies">
+                <img class="loading-icon" ng-src="{{loadingImage}}">
+            </div>    
+            <ul ng-show="movies">
+                <li class="movie-container" ng-repeat="movie in movies | filterByName: search.name track by movie.id">
+                    <div class="movie-item">
+                        <div class="movie-image-container">
+                            <img class="movie-image" ng-src="{{movie.posterImage}}" uib-tooltip="{{movie.shortDescription}}" tooltip-placement="bottom" tooltip-popup-delay='1500' alt="film image"/>
+                            <div ng-show="isDeleting" class="movie-delete-icon glyphicon glyphicon-minus-sign delete-icon" ng-click="deleteMovie($index, movie)"/>
+                        </div>
+                        <div class="movie-name">{{movie.name | uppercase}}</div>
+                        <div class="movie-sub-info">
+                            <div class="movie-year">{{movie.year}}</div>
+                            <div class="movie-resolutions">
+                                <span ng-repeat="res in movie.supportedResolution track by $index">
+                                    {{res}}p
+                                </span> 
+                            </div> 
+                        </div>               
+                    </div>
+                </li>
+            </ul>
+</div>
+</fieldset>
+        </div>
+    </div>
+        
+    <!--load scripts-->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script> 
+    <script type="text/javascript" src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script type="text/javascript" src="app/services/inAppMessagingService.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/filters/filterByYear.js"></script>
+    <script type="text/javascript" src="app/filters/filterByName.js"></script>
+    <script type="text/javascript" src="app/services/moviesService.js"></script>
+    <script type="text/javascript" src="app/movies/moviesCtrl.js"></script>
+</BODY>
+</HTML>
