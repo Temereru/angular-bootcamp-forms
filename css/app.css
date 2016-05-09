@@ -117,6 +117,41 @@ body{
     vertical-align: bottom;
 }
 
+.add-movie-error-messages{
+    background-color: #232A46 !important;
+    color: maroon;
+    font-weight: bold;
+}
+
+.add-movie-header{
+    background-color: #2B3763 !important;
+    color: #E2E3E9 !important;
+}
+
+.add-movie-content{
+    background-color: #232A46 !important;
+    color: #E2E3E9 !important;
+}
+
+.add-movie-actions{
+    background-color: #2B3763 !important;
+    color: #E2E3E9 !important;
+}
+
+.add-movie-content input, .add-movie-content textarea, md-select, md-content{
+    background-color: #2A386F !important;
+    color: #E2E3E9 !important;
+}
+
+md-select span{
+    color: #E2E3E9 !important;
+}
+
+md-select-menu.md-default-theme md-option:focus:not([disabled]):not([selected]), md-select-menu md-option:focus:not([disabled]):not([selected]) {
+    background-color: #2A386F !important;
+    color: #E2E3E9 !important;
+}
+
 /*animation*/
         .delete-icon {
             -webkit-animation-duration: .4s;

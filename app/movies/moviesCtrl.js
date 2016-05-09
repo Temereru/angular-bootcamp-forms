@@ -1,5 +1,6 @@
-"use strict"
-angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '$filter', '$mdDialog', '$mdToast', 'MoviesService', 'InAppMessagingService',  function($scope, $timeout, $filter, $mdDialog, $mdToast, moviesService, inAppMessagingService) {
+"use strict";
+
+angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '$filter', '$mdDialog', '$mdToast', 'MoviesService', 'InAppMessagingService', function($scope, $timeout, $filter, $mdDialog, $mdToast, moviesService, inAppMessagingService) {
   $scope.isDeleting = false;
  
   var init = function(){
@@ -27,8 +28,8 @@ angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '
         }
       });
     });
-  }
-  
+  };
+
   $scope.addMovie = function(){
     alert("This functionality will be available soon!");
   };
@@ -52,7 +53,7 @@ angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '
     }, function() {
           //do nothing
     });
-  }
+  };
     
   $scope.$watch('search', function(newValue, oldValue){
     if (newValue !== oldValue){

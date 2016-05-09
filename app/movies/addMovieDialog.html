@@ -1,0 +1,23 @@
+<md-dialog aria-label="Add Movie"  ng-cloak>
+  <form name="addMovieForm" novalidate class="add-movie-form">
+    <md-toolbar>
+      <div class="md-toolbar-tools add-movie-header">
+        <h2>Add Movie</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content add-movie-content">
+        Add The Hobbit movie!
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions class="add-movie-actions" layout="row">
+      <md-button ng-click="cancel()">
+        Cancel
+      </md-button>
+      <md-button ng-submit="add()">
+        Add
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

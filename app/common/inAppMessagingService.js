@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('movieLibraryInAppMessaging', []).service('InAppMessagingService', [function() {
+angular.module('inAppMessaging', []).service('InAppMessagingService', [function() {
   var inAppMessagesEvents = {
     onDisplayInAppMessageRequested: 'onDisplayInAppMessageRequested'  
   };
@@ -13,7 +13,7 @@ angular.module('movieLibraryInAppMessaging', []).service('InAppMessagingService'
 
   var getInAppMessage = function(){
     return inAppMessage;
-  }
+  };
   
   return {
       events: inAppMessagesEvents,
