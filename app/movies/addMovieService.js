@@ -5,7 +5,6 @@ angular.module('movieLibrary').service('addMovieService', ['$q', '$mdDialog', fu
   var addMovieController = function($scope, $mdDialog) {
     $scope.optionalResolutions = [480, 720, 1080];
     $scope.movie = {
-      id: 0,
       name:"",
       year:1900,
       supportedResolution: [],
