@@ -1,19 +1,20 @@
 "use strict";
 
-angular.module('movieLibrary').service('AddMovieService', ['$q', '$mdDialog', function($q, $mdDialog) {
+angular.module('movieLibrary').service('addMovieService', ['$q', '$mdDialog', function($q, $mdDialog) {
   //the controller for this modal view
   var addMovieController = function($scope, $mdDialog) {
-    var movie = {
-      id:3,
-      name:"The Hobbit: The Desolation of Smaug",
-      year:2013,
-      supportedResolution: [720,1080],
-      posterImage: "https://en.wikipedia.org/wiki/File:The_Hobbit_-_The_Desolation_of_Smaug_theatrical_poster.jpg",
-      shortDescription: "The film follows the titular character Bilbo Baggins as he accompanies Thorin Oakenshield and his fellow Dwarves on a quest to reclaim the Lonely Mountain from the dragon Smaug"
+    $scope.optionalResolutions = [480, 720, 1080];
+    $scope.movie = {
+      id: 0,
+      name:"",
+      year:0,
+      supportedResolution: [],
+      posterImage: "",
+      shortDescription: ""
     };
     
     $scope.add = function() {
-      $mdDialog.hide(movie);
+      $mdDialog.hide($scope.movie);
     };
     
     $scope.cancel = function() {
@@ -26,10 +27,10 @@ angular.module('movieLibrary').service('AddMovieService', ['$q', '$mdDialog', fu
 
       $mdDialog.show({
       controller: addMovieController,
-      templateUrl: 'app/movies/addMovieDialog.html',
+      templateUrl: 'movies/addMovieDialog.html',
       parent: angular.element(document.body),
       clickOutsideToClose:false,
-      fullscreen: false
+      fullscreen: false,
     })
     .then(function(movie) {
       console.log('adding movie ' + movie.name);

@@ -7,15 +7,26 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div class="md-dialog-content add-movie-content">
-        Add The Hobbit movie!
-      </div>
+      <form novalidate class="pull-right">
+        <input type="number" placeholder="id" ng-model="movie.id" name="id"></input><br/>
+        <input type="text" placeholder="name" ng-model="movie.name" name="name"></input><br/>
+        <input type="number" placeholder="year" ng-model="movie.year" name="year"></input><br/>
+        <input type="text" placeholder="Poster Image Url" ng-model="movie.posterImage" name="posterImage"></input><br/>
+        <textarea placeholder="description" ng-model="movie.shortDescription" name="description"></textarea><br/>
+        <md-input-container>
+          <md-select ng-model="movie.supportedResolution" multiple>
+            <md-optgroup label="resolutions">
+              <md-option ng-value="resolution" ng-repeat="resolution in optionalResolutions">{{resolution}}p</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </form>
     </md-dialog-content>
     <md-dialog-actions class="add-movie-actions" layout="row">
       <md-button ng-click="cancel()">
         Cancel
       </md-button>
-      <md-button ng-submit="add()">
+      <md-button ng-click="add()">
         Add
       </md-button>
     </md-dialog-actions>

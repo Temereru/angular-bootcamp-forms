@@ -10,5 +10,5 @@ angular.module('movieLibrary',['ui.bootstrap', 'ngMaterial', 'inAppMessaging'])
 
   $timeout(function(){
     $scope.isAppReady = true;
-  }, 5000)
+  }, 1000)
 }]);

@@ -41,8 +41,13 @@ angular.module('movieLibrary').service('MoviesService', [function() {
       return retval;
   };
 
+  var addMovie = function(movie){
+    movies.push(movie);
+  }
+
   return {
       getMovies: getMovies,
-      isIdValid: isIdValid
+      isIdValid: isIdValid,
+      addMovie: addMovie
   } 
 }]);

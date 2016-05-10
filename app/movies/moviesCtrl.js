@@ -1,6 +1,7 @@
 "use strict";
 
-angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '$filter', '$mdDialog', '$mdToast', 'MoviesService', 'InAppMessagingService', function($scope, $timeout, $filter, $mdDialog, $mdToast, moviesService, inAppMessagingService) {
+angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '$filter', '$mdDialog', '$mdToast', 'MoviesService', 'InAppMessagingService',
+ 'addMovieService',function($scope, $timeout, $filter, $mdDialog, $mdToast, moviesService, inAppMessagingService, addMovieService) {
   $scope.isDeleting = false;
  
   var init = function(){
@@ -31,7 +32,12 @@ angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '
   };
 
   $scope.addMovie = function(){
-    alert("This functionality will be available soon!");
+    addMovieService.showAddMovieModal().then(function(movie){
+      $scope.movies.push(movie);
+      moviesService.addMovie(movie);
+    }, function(err){
+      console.log('error while showing add dialoug: ' + err);
+    });
   };
   
   $scope.deleteMovies = function(){
