@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('movieLibrary',['ui.bootstrap', 'ngMaterial', 'inAppMessaging'])
+angular.module('movieLibrary',['ui.bootstrap', 'ngMaterial', 'inAppMessaging', 'ngMessages'])
 .controller('appCtrl', ['$scope', '$timeout', 'InAppMessagingService', function($scope, $timeout, inAppMessagingService){
   $scope.isAppReady = false;
   $timeout(function(){

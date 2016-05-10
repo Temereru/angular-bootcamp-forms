@@ -7,7 +7,7 @@ angular.module('movieLibrary').service('addMovieService', ['$q', '$mdDialog', fu
     $scope.movie = {
       id: 0,
       name:"",
-      year:0,
+      year:1900,
       supportedResolution: [],
       posterImage: "",
       shortDescription: ""
@@ -30,7 +30,7 @@ angular.module('movieLibrary').service('addMovieService', ['$q', '$mdDialog', fu
       templateUrl: 'movies/addMovieDialog.html',
       parent: angular.element(document.body),
       clickOutsideToClose:false,
-      fullscreen: false,
+      fullscreen: false
     })
     .then(function(movie) {
       console.log('adding movie ' + movie.name);

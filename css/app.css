@@ -118,7 +118,7 @@ body{
 }
 
 .add-movie-error-messages{
-    background-color: #232A46 !important;
+    /*background-color: #232A46 !important;*/
     color: maroon;
     font-weight: bold;
 }
@@ -141,6 +141,10 @@ body{
 .add-movie-content input, .add-movie-content textarea, md-select, md-content{
     background-color: #2A386F !important;
     color: #E2E3E9 !important;
+}
+
+.resolutions-label {
+    margin: 18px 2px;
 }
 
 md-select span{

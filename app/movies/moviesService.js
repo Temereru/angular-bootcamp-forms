@@ -41,8 +41,21 @@ angular.module('movieLibrary').service('MoviesService', [function() {
       return retval;
   };
 
+  var generateId = function(){
+    var send = false;
+    var id = 0;
+    while(!send){
+      id = Math.floor(Math.random() * 10000);
+      send = isIdValid(id);
+    }
+    return id; 
+  }
+
   var addMovie = function(movie){
+    movie.id = generateId();
     movies.push(movie);
+    console.log(movies);
+    return movie;
   }
 
   return {

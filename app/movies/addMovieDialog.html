@@ -1,4 +1,4 @@
-<md-dialog aria-label="Add Movie"  ng-cloak>
+<md-dialog aria-label="Add Movie" flex="50" ng-cloak>
   <form name="addMovieForm" novalidate class="add-movie-form">
     <md-toolbar>
       <div class="md-toolbar-tools add-movie-header">
@@ -7,26 +7,52 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <form novalidate class="pull-right">
-        <input type="number" placeholder="id" ng-model="movie.id" name="id"></input><br/>
-        <input type="text" placeholder="name" ng-model="movie.name" name="name"></input><br/>
-        <input type="number" placeholder="year" ng-model="movie.year" name="year"></input><br/>
-        <input type="text" placeholder="Poster Image Url" ng-model="movie.posterImage" name="posterImage"></input><br/>
-        <textarea placeholder="description" ng-model="movie.shortDescription" name="description"></textarea><br/>
-        <md-input-container>
+      <form novalidate>
+        <div layout-gt-sm="row">
+        <md-input-container flex-gt-sm>
+          <label>Name</label>
+          <input  type="text" placeholder="name" ng-model="movie.name" name="name" required></input>
+        </md-input-container>
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label >Year</label>
+          <input  type="number" placeholder="year" ng-model="movie.year" name="year" min="1900" max-"2020"></input>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Image</label>
+          <input  type="url" placeholder="Poster Image Url" ng-model="movie.posterImage" name="posterImage" required></input>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Desription</label>
+          <textarea placeholder="description" ng-model="movie.shortDescription" name="description" ng-maxLength="200"></textarea>
+        </md-input-container>
+        <md-input-container flex-gt-sm>
+          <label class="resolutions-label">Resolutions</label>
           <md-select ng-model="movie.supportedResolution" multiple>
             <md-optgroup label="resolutions">
-              <md-option ng-value="resolution" ng-repeat="resolution in optionalResolutions">{{resolution}}p</md-option>
+              <md-option ng-value="resolution" ng-repeat="resolution in optionalResolutions" class="form-control">{{resolution}}p</md-option>
             </md-optgroup>
           </md-select>
         </md-input-container>
+        <div class="add-movie-error-messages" ng-messages="addMovieForm.name.$error">
+          <div ng-message="required">Please enter a valid name</div>
+        </div>
+        <div class="add-movie-error-messages" ng-messages="addMovieForm.year.$error">
+          <div ng-message="number">Enter a valid number for year</div>
+          <div ng-message="min">Enter a year above 1900</div>
+          <div ng-message="max">Enter a year below 2020</div>
+        </div>
+        <div class="add-movie-error-messages" ng-messages="addMovieForm.posterImage.$error">
+          <div ng-message="required">Please enter an image url</div>
+          <div ng-message="url">Please enter a valid image url</div>
+        </div>
       </form>
     </md-dialog-content>
     <md-dialog-actions class="add-movie-actions" layout="row">
       <md-button ng-click="cancel()">
         Cancel
       </md-button>
-      <md-button ng-click="add()">
+      <md-button ng-click="add()" ng-disabled="addMovieForm.$invalid">
         Add
       </md-button>
     </md-dialog-actions>

@@ -33,8 +33,7 @@ angular.module('movieLibrary').controller('MoviesCtrl', ['$scope', '$timeout', '
 
   $scope.addMovie = function(){
     addMovieService.showAddMovieModal().then(function(movie){
-      $scope.movies.push(movie);
-      moviesService.addMovie(movie);
+      $scope.movies.push(moviesService.addMovie(movie));
     }, function(err){
       console.log('error while showing add dialoug: ' + err);
     });
